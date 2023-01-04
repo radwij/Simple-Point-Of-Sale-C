@@ -45,8 +45,8 @@ int get_minute() {
 }
 
 //--------------------------------------------------------------------------------------------------------------
-//STRUCTURES----------------------------------------------------------------------------------------------------
 
+//STRUCTURES----------------------------------------------------------------------------------------------------
 typedef struct {
     char month_name[13][20];
 }months;
@@ -94,7 +94,125 @@ typedef struct {
 } order;
 //--------------------------------------------------------------------------------------------------------------
 
-int main()
-{
+//FUNCTIONS DECLARATION-----------------------------------------------------------------------------------------
+void cashier_menu();    //for making transactions
+void inventory_menu();  //for managing inventory
+    void view_inventory();  //viewing inventory menu
+    void add_items();   //adding items to inventory
+    void remove_items();    //removing items from inventory
+    void modify_items();    //modifying items in inventory
+void invoices_menu();   //for viewing invoices
+    void view_invoices();   //showing transactions history
 
+void show_items();  //showing items in inventory
+//--------------------------------------------------------------------------------------------------------------
+
+//DRIVER CODE---------------------------------------------------------------------------------------------------
+int main(void)
+{
+    while(true) {
+        int command;
+        int flag = 0;
+
+        printf("--------------\n");
+        printf("> STORE MENU <\n");
+        printf("--------------\n\n");
+
+        printf("[1] Make Transaction\n");
+        printf("[2] Manage Inventory\n");
+        printf("[3] View Transactions\n");
+        printf("[0] Exit\n\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &command);
+
+        switch(command) {
+            case 1:
+                system("cls"); //clears the screen
+                printf("Make Transaction\n");
+                break;
+            case 2:
+                system("cls"); //clears the screen
+                printf("Manage Inventory\n");
+                inventory_menu();
+                break;
+            case 3:
+                system("cls"); //clears the screen
+                printf("View Invoices\n");
+                break;
+            case 0:
+                printf("Exiting...\n");
+                exit(0);
+            default:
+                printf("Invalid input!\n");
+                system("cls"); //clears the screen
+                flag = 1;
+                break;
+
+        }
+
+        if (flag == 0) {
+            break;
+        }
+        
+    }
+
+    return 0;
+}
+//--------------------------------------------------------------------------------------------------------------
+
+//FUNCTIONS DEFINITION------------------------------------------------------------------------------------------
+void inventory_menu() {
+    int command;
+    int flag = 0;
+
+    printf("--------------------\n");
+    printf(">> INVENTORY MENU <<\n");
+    printf("--------------------\n\n");
+
+    printf("[1] View Inventory\n");
+    printf("[2] Add Items\n");
+    printf("[3] Remove Items\n");
+    printf("[4] Modify Items\n");
+    printf("[0] Back\n\n");
+
+    printf("Enter your choice: ");
+    scanf("%d", &command);
+
+    switch(command) {
+        case 1:
+            system("cls");
+            view_inventory;
+            break;
+        case 2:
+            system("cls");
+            add_items;
+            break;
+        case 3 :
+            system("cls");
+            remove_items;
+            break;
+        case 4:
+            system("cls");
+            modify_items;
+            break;
+        case 0:
+            system("cls");
+            main();
+            break;
+        default:
+            printf("Invalid input!\n");
+            system("cls");
+            flag = 1;
+            break;
+    }
+
+    if (flag != 0) {
+        inventory_menu;
+    }
+
+}
+
+void add_items() {
+    fopen 
 }
